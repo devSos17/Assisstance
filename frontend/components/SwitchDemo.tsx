@@ -15,12 +15,7 @@ export default function SwitchDemo() {
       >
         Dark mode (does nothing)
       </Label>
-      <Switch
-        id="switch-demo"
-        size="$4"
-      >
-        <Switch.Thumb animation="quick" />
-      </Switch>
+      
     </XStack>
   );
 }

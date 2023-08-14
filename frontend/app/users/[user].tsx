@@ -1,6 +1,6 @@
 import { ArrowLeft } from "@tamagui/lucide-icons";
 import { useRouter, useSearchParams } from "expo-router";
-import { Button, H3, H6, XStack } from "tamagui";
+import { Button, H3, H6, XStack,  Input, SizeTokens, TextArea,YStack } from "tamagui";
 
 import DialogDemo from "../../components/DialogDemo";
 import { MyStack } from "../../components/MyStack";
@@ -22,15 +22,44 @@ export default function User() {
           icon={ArrowLeft}
           onPress={router.back}
         />
-        <H3>{params.user}&apos;s user page</H3>
+        <H3>Inicia sesión</H3>
+
+    
       </XStack>
+      <YStack
+      justifyContent={"center"}
+        
+      maxWidth={400}
+     
+      flex= {1}
+     
+      padding={"$6"}
+      space= {"$5"}
+    >
+      <Input placeholder="Usuario"></Input>
+  
+      <Input placeholder="Contraseña"></Input>
+    
+      <Button size="$3" theme="active">Acceder</Button>
+    </YStack>
+      
+      
+      
+      
 
-      <H6>Some Tamagui components in action.</H6>
+      
+      
 
-      <DialogDemo />
-      <SelectDemo />
-      <SpinnerDemo />
-      <SwitchDemo />
+      
     </MyStack>
+
+
+    
+    
   );
+  
+  
+  
 }
+
+

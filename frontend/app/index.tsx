@@ -1,5 +1,6 @@
 import { Github, Twitter } from "@tamagui/lucide-icons";
 import { Link, useRouter } from "expo-router";
+
 import {
   Button,
   H1,
@@ -21,67 +22,40 @@ export default function Home() {
         space="$4"
         maxWidth={600}
       >
-        <H1 textAlign="center">Welcome to Tamagui.</H1>
+        <H1 textAlign="center">Assisstance</H1>
         <Paragraph textAlign="center">
-          Here&apos;s a basic starter to show navigating from one screen to
-          another.
+          Gestiona tus eventos con Assisstance 
         </Paragraph>
       </YStack>
+      
+      <YStack
+        justifyContent={"center"}
+        
+        maxWidth={400}
+       
+        flex= {1}
+       
+        padding={"$6"}
+        space= {"$5"}
 
+      
+    >
       <Button onPress={() => router.push("/users/testuser")}>
-        Go to user page
+        INICIAR SESIÓN
       </Button>
-
-      <YStack space="$5">
-        <YGroup
-          bordered
-          separator={<Separator />}
-          theme="green"
-        >
-          <YGroup.Item>
-            <Link
-              asChild
-              href="https://twitter.com/natebirdman"
-              target="_blank"
-            >
-              <ListItem
-                hoverTheme
-                title="Nate"
-                pressTheme
-                icon={Twitter}
-              />
-            </Link>
-          </YGroup.Item>
-          <YGroup.Item>
-            <Link
-              asChild
-              href="https://github.com/tamagui/tamagui"
-              target="_blank"
-            >
-              <ListItem
-                hoverTheme
-                pressTheme
-                title="Tamagui"
-                icon={Github}
-              />
-            </Link>
-          </YGroup.Item>
-          <YGroup.Item>
-            <Link
-              asChild
-              href="https://github.com/ivopr/tamagui-expo"
-              target="_blank"
-            >
-              <ListItem
-                hoverTheme
-                pressTheme
-                title="This Template"
-                icon={Github}
-              />
-            </Link>
-          </YGroup.Item>
-        </YGroup>
+      
+      
+    
+      
+      <Button onPress={() => router.push("/Regritos/registro")}>
+        REGISTRARSE
+      </Button>
       </YStack>
+      
+     
+      
+      
+      
     </MyStack>
   );
 }

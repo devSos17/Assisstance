@@ -27,6 +27,7 @@ class AuthController extends Controller
                     "message" => "Sucess",
                     "status" => 1,
                     "token" => $token,
+                    "role" => $user->role
                 ]);
             }
         }
@@ -46,6 +47,7 @@ class AuthController extends Controller
         $user = User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role_id' => 3,
         ]);
 
         return response()->json([
@@ -54,4 +56,15 @@ class AuthController extends Controller
         ]);
     }
     // logout
+    public function invitado()
+    {
+        $user = User::find(1); // Hardcode User Inivitado
+        $token = $user->createToken("auth_token")->plainTextToken;
+        return response()->json([
+            "message" => "Sucess",
+            "status" => 1,
+            "token" => $token,
+            "role" => $user->role
+        ]);
+    }
 }

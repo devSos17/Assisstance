@@ -44,4 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function registros()
+    {
+        return $this->hasMany(RegistroUsuario::class, 'user_id');
+    }
+
+    public function eventos()
+    {
+        return $this->hasMany(Eventos::class, 'organizador_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
 }

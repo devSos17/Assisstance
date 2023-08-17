@@ -11,23 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eventos', function (Blueprint $table) {
+        Schema::create('Eventos', function (Blueprint $table) {
 
             $table->id();
-            $table->unsignedBigInteger('organizador_id');
+            $table->foreignId('organizador_id')->references('id')->on('Users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('Nombre');
             $table->string('Lugar');
-            $table->dateTime('Fecha_inicio');
-            $table->dateTime('Fecha_fin');
-            $table->Integer('Capacidad');
-            $table->String('Ponente');
-            $table->String('Descripcion');
-            
+            $table->date('Fecha');
+            $table->integer('Duracion');
+            $table->integer('Capacidad');
+            $table->string('Ponente');
+            $table->text('Descripcion');
+
             $table->timestamps();
 
-            $table->foreign('organizador_id')->references('id')->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
         });
     }
 

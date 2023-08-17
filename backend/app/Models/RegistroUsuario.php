@@ -30,7 +30,7 @@ class RegistroUsuario extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function nacionalidad()
@@ -51,5 +51,10 @@ class RegistroUsuario extends Model
     public function discapacidad()
     {
         return $this->belongsTo(Discapacidad::class);
+    }
+
+    public function eventos()
+    {
+        return $this->belongsToMany(Eventos::class, 'user_registro_id', 'evento_id');
     }
 }

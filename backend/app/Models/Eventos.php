@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Eventos extends Model
 {
     use HasFactory;
+
+    protected $table = "Eventos";
+
     protected $fillable = [
         'organizador_id',
         'Nombre',
@@ -17,8 +20,15 @@ class Eventos extends Model
         'Capacidad',
         'Ponente',
         'Descripcion'
-        
+
     ];
+    public function asistencias()
+    {
+        return $this->belongsToMany(Eventos::class, 'evento_id', 'user_registro_id');
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'organizador_id');
+    }
 }
-
-

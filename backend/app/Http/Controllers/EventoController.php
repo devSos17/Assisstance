@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Eventos;
@@ -9,17 +9,25 @@ use Illuminate\Http\Request;
 
 class EventoController extends Controller
 {
-   
+
     public function index()
     {
         $Eventos = Eventos::all();
         return $Eventos;
     }
 
+    public function user(Request $request)
+    {
+        $user = $request->user();
+        $registro = $user->registros;
+        $Eventos = $registro->eventos;
+        return $Eventos;
+    }
+
     public function store(Request $request)
     {
         $Evento = new Eventos();
-        
+
         $Evento->Nombre = $request->Nombre;
         $Evento->organizador_id = $request->organizador_id;
         $Evento->Lugar = $request->Lugar;
@@ -28,24 +36,24 @@ class EventoController extends Controller
         $Evento->Capacidad = $request->Capacidad;
         $Evento->Ponente = $request->Ponente;
         $Evento->Descripcion = $request->Descripcion;
-        
-        
+
+
 
         $Evento->save();
     }
 
-    
+
     public function show($id)
     {
-       $Evento = Eventos::find($id);
-       return response()->json($Evento);
+        $Evento = Eventos::find($id);
+        return response()->json($Evento);
     }
 
     public function update(Request $request,  $id)
     {
         $Evento = Eventos::find($id);
         $Evento->Nombre = $request->Nombre;
-        
+
         $Evento->Lugar = $request->Lugar;
         $Evento->Fecha_inicio = $request->Fecha_inicio;
         $Evento->Fecha_fin = $request->Fecha_fin;
@@ -55,7 +63,6 @@ class EventoController extends Controller
 
         $Evento->save();
         return response()->json($Evento);
-
     }
 
     public function destroy($id)

@@ -29,7 +29,14 @@ export default function Home() {
       </YStack>
 
       <Button onPress={() => router.push("/users/testuser")}>
-        Go to user page
+        INICIAR SESIÓN
+      </Button>
+      
+      
+    
+      
+      <Button onPress={() => router.push("/Registros/registroUser")}>
+        REGISTRARSE
       </Button>
 
       <YStack space="$5">
@@ -82,6 +89,15 @@ export default function Home() {
           </YGroup.Item>
         </YGroup>
       </YStack>
+
+      <Button onPress={() => router.push("/Invitados/registroInvitados")}>
+        INVITADO
+      </Button>
+      
+     
+      
+      
+      
     </MyStack>
   );
 }

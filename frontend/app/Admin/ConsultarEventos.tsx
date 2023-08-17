@@ -58,7 +58,7 @@ const Table = () => {
           data={data}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
-          style={styles.tableContainer}
+          
         />
       </View>
     </ScrollView>
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     color: "red",
     paddingHorizontal: 10,
   },
+  
 });
 
 export default Table;

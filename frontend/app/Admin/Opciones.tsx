@@ -30,7 +30,7 @@ export default function User() {
         AGREGAR EVENTO
       </Button>
 
-      <Button onPress={() => router.push("/Admin/registroUser")}>
+      <Button onPress={() => router.push("/Admin/ConsultarEventos")}>
         CONSULTAR EVENTOS
       </Button>
     
